@@ -1,4 +1,4 @@
-# blog shensai
+# shem vue-blog 
 
 ## Project setup
 ```
