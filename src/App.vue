@@ -7,7 +7,41 @@
     <router-view/>
   </div>
 </template>
+ <script>
 
+ 
+export default {
+  name: 'index',
+  data () {
+    return {
+      newsListShow: [],
+    }
+  },
+  components: {
+   // NewsCell
+  },
+  created() {
+    this.setNewsApi();
+  },
+  methods:{
+    setNewsApi(){
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST","/data/index");
+      xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+      xhr.send(null);
+       xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var data= JSON.parse(xhr.responseText);
+         	console.log(data);
+        }
+        };
+    }
+    
+
+  },
+}
+
+ </script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
